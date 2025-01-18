@@ -5,9 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "jest e2e",
-    "dev": "ts-node-dev src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js",
+    "dev": "bun run src/index.ts",
     "migrate": "ts-node src/database/migrate.ts"
   },
   "author": "El Dorado Dev Team",
@@ -21,8 +19,6 @@
     "jest": "29.7.0",
     "mocha": "10.7.0",
     "ts-jest": "29.1.2",
-    "ts-node": "10.9.2",
-    "ts-node-dev": "2.0.0",
     "typescript": "5.5.4"
   },
   "dependencies": {
