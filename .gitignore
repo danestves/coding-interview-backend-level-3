@@ -1,2 +1,4 @@
 node_modules
 mock.ts
+.env
+./src/database/db.sqlite3

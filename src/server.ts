@@ -1,4 +1,5 @@
 import Hapi from '@hapi/hapi'
+
 import { defineRoutes } from './routes'
 
 const getServer = () => {
@@ -23,4 +24,4 @@ export const startServer = async () => {
     await server.start()
     console.log(`Server running on ${server.info.uri}`)
     return server
-};
+}

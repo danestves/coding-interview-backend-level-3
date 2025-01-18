@@ -1,5 +1,7 @@
-import { initializeServer } from '../src/server'
 import { Server } from '@hapi/hapi'
+
+import { initializeServer } from '../src/server'
+import { db } from '../src/database/connection'
 
 describe('E2E Tests', () => {
     let server: Server
@@ -10,7 +12,14 @@ describe('E2E Tests', () => {
     }
 
     beforeEach(async () => {
+        // Clear the database
+        await db('items').truncate()
         server = await initializeServer()
+    })
+
+    afterAll(async () => {
+        await db.destroy()
+        return server.stop()
     })
 
     it('should get a response with status code 200', async () => {
@@ -225,9 +234,5 @@ describe('E2E Tests', () => {
                 ]
             })
         })
-    })
-
-    afterAll(() => {
-        return server.stop()
     })
 })
